@@ -5,7 +5,7 @@ const routes = [
     {
         path: '/tasks',
         component: TaskListComponent,
-        name: 'task.List',
+        name: 'task.list',
     }
 ];
 
