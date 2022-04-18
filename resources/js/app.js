@@ -1,24 +1,16 @@
 import { createApp } from 'vue';
-import VueRouter from 'vue-router';
+import router from "./routes";
 import HeaderComponent from "./components/HeaderComponent";
-import TaskListComponent from "./components/TaskListComponent";
+
 
 require('./bootstrap');
 
-VueRouter.use(VueRouter);
-
-const router = new VueRouter({
-    mode: 'history',
-    routes: [
-        {
-            path: '/tasks',
-            name: 'task.List',
-            component: TaskListComponent
-        },
-    ]
+const app = createApp({
+    components: {
+        'header-component': HeaderComponent,
+    }
 });
 
-const app = createApp({})
-app.component('header-component', HeaderComponent);
+app.use(router);
 app.mount('#app')
 
