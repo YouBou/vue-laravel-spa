@@ -1,6 +1,6 @@
 {
     "commit-msg": {
-        "enabled": false,
+        "enabled": true,
         "actions": [
             {
                 "action": "\\Ramsey\\CaptainHook\\ValidateConventionalCommit"
@@ -16,7 +16,7 @@
         "actions": []
     },
     "prepare-commit-msg": {
-        "enabled": false,
+        "enabled": true,
         "actions": [
             {
                 "action": "\\Ramsey\\CaptainHook\\PrepareConventionalCommit"
