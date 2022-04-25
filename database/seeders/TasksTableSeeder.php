@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Task;
+use App\Adapter\Gateway\Dao\Eloquent\Model\Task;
 use Illuminate\Database\Seeder;
 
 class TasksTableSeeder extends Seeder
