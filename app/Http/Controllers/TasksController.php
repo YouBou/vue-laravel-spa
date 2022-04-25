@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Task;
+use App\Adapter\Presenter\Json\GetTasksPresenter;
+use App\Domain\Core\Service\Usecase\GetTasksUsecase;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
+use Exception;
 
 /**
  * Class TasksController
@@ -12,8 +13,15 @@ use Illuminate\Http\Request;
  */
 class TasksController extends Controller
 {
-    public function index()
+    /**
+     * @param GetTasksUsecase $usecase
+     * @param GetTasksPresenter $presenter
+     * @return JsonResponse
+     * @throws Exception
+     */
+    public function get(GetTasksUsecase $usecase, GetTasksPresenter $presenter): JsonResponse
     {
-        return Task::all();
+        $output = $usecase->execute();
+        return $presenter->execute($output);
     }
 }
