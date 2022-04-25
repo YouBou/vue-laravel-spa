@@ -1,36 +1,17 @@
 <?php
 
-/**
- * This configuration will be read and overlaid on top of the
- * default configuration. Command line arguments will be applied
- * after this file is read.
- */
 return [
-
-    // A list of directories that should be parsed for class and
-    // method information. After excluding the directories
-    // defined in exclude_analysis_directory_list, the remaining
-    // files will be statically analyzed for errors.
-    //
-    // Thus, both first-party and third-party code being used by
-    // your application should be included in this list.
     'directory_list' => [
-        'app',
-        'vendor',
+        'App/Domain',
     ],
-
-    // A directory list that defines files that will be excluded
-    // from static analysis, but whose class and method
-    // information should be included.
-    //
-    // Generally, you'll want to include the directories for
-    // third-party code (such as "vendor/") in this list.
-    //
-    // n.b.: If you'd like to parse but not analyze 3rd
-    //       party code, directories containing that code
-    //       should be added to the `directory_list` as
-    //       to `excluce_analysis_directory_list`.
-    "exclude_analysis_directory_list" => [
-        'vendor'
+    'suppress_issue_types' => [
+        'PhanTypeInstantiateAbstractStatic', // abstract classのstatic functionが使えないのはきつすぎるため
+        'PhanAbstractStaticMethodCallInStatic', // abstract classのstatic function内でstatic functionが使えないのはきつすぎるため
+        'PhanUnreferencedUseNormal', // phpstan用のphpdocで使えないのはきつすぎるため
+        'PhanDeprecatedFunction', // ドメイン内でしか今のところ解析していないことと、非推奨が使えなくなったタイミングでCIが落とされて対応すればいいため
+        'PhanParamSignatureRealMismatchParamType', // PHP7.4からサポートされるようになった引数の反変性が使えないのはきつすぎるため
+        'PhanParamSignatureRealMismatchReturnType', // PHP7.4からサポートされるようになった戻り値の共変性が使えないのはきつすぎるため
+        'PhanCompatibleConstructorPropertyPromotion', // PHP8.0からサポートされるようになったconstructor property promotionが使えないのはきつすぎるため
+        'PhanUnextractableAnnotationSuffix', // Array Shapeが使えないのはきつすぎるため
     ],
 ];
