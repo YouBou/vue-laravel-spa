@@ -6,7 +6,9 @@ use App\Adapter\Gateway\Dao\Eloquent\Model\Task as TaskEloquentModel;
 use App\Adapter\Gateway\Dao\Eloquent\TaskEloquentDao;
 use App\Adapter\Gateway\Query\Transformer\TaskTransformer;
 use App\Domain\Core\Model\Entity\Task;
+use App\Domain\Core\Model\ValueObject\TaskId;
 use App\Domain\Core\Service\Repository\Query\TaskQuery;
+use Exception;
 
 /**
  * Class TaskQueryGateway
@@ -34,5 +36,17 @@ class TaskQueryGateway implements TaskQuery
             return $this->taskTransformer->toTask($taskMapper);
         })
         ->all();
+    }
+
+    /**
+     * @param TaskId $taskId
+     * @return Task
+     * @throws Exception
+     */
+    public function getById(TaskId $taskId): Task
+    {
+        /** @var TaskEloquentModel $taskMapper */
+        $taskMapper = $this->taskDao->getById($taskId->value());
+        return $this->taskTransformer->toTask($taskMapper);
     }
 }
