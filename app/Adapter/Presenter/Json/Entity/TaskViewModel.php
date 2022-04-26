@@ -21,7 +21,7 @@ class TaskViewModel implements JsonViewModel
 
     private function getId(): string
     {
-        return $this->task->id;
+        return $this->task->id->value();
     }
 
     private function getTitle(): string
