@@ -13,10 +13,10 @@ use App\Domain\Core\Service\UsecaseOutput\Impls\GetTasksOutputImpl;
 class GetTasksUsecase
 {
     /**
-     * @param TaskFactory $tasksRepository
+     * @param TaskFactory $taskRepository
      */
     public function __construct(
-        private readonly TaskFactory $tasksRepository
+        private readonly TaskFactory $taskRepository
     ) {
     }
 
@@ -25,7 +25,7 @@ class GetTasksUsecase
      */
     public function execute(): GetTasksOutput
     {
-        $tasks = $this->tasksRepository->getTasks();
+        $tasks = $this->taskRepository->getTasks();
         return new GetTasksOutputImpl($tasks);
     }
 }
