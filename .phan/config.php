@@ -1,6 +1,7 @@
 <?php
 
 return [
+    "target_php_version" => '8.1',
     'directory_list' => [
         'App/Domain',
     ],
