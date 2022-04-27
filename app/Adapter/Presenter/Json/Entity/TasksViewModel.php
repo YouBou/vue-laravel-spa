@@ -3,7 +3,7 @@
 namespace App\Adapter\Presenter\Json\Entity;
 
 use App\Adapter\Presenter\ViewModel\JsonViewModel;
-use App\Domain\Core\Model\Entity\Task;
+use App\Domain\Core\Model\Entity\Task\Task;
 
 /**
  * Class TasksViewModel

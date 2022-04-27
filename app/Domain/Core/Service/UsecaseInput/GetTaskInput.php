@@ -2,7 +2,7 @@
 
 namespace App\Domain\Core\Service\UsecaseInput;
 
-use App\Domain\Core\Model\ValueObject\TaskId;
+use App\Domain\Core\Model\ValueObject\Task\TaskId;
 
 /**
  * Interface GetTaskInput

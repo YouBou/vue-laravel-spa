@@ -5,8 +5,8 @@ namespace App\Adapter\Gateway\Query;
 use App\Adapter\Gateway\Dao\Eloquent\Model\Task as TaskEloquentModel;
 use App\Adapter\Gateway\Dao\Eloquent\TaskEloquentDao;
 use App\Adapter\Gateway\Query\Transformer\TaskTransformer;
-use App\Domain\Core\Model\Entity\Task;
-use App\Domain\Core\Model\ValueObject\TaskId;
+use App\Domain\Core\Model\Entity\Task\Task;
+use App\Domain\Core\Model\ValueObject\Task\TaskId;
 use App\Domain\Core\Service\Repository\Query\TaskQuery;
 use Exception;
 

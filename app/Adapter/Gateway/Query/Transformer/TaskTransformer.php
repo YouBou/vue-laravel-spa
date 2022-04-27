@@ -2,9 +2,12 @@
 
 namespace App\Adapter\Gateway\Query\Transformer;
 
-use App\Domain\Core\Model\Entity\Task;
 use App\Adapter\Gateway\Dao\Eloquent\Model\Task as EloquentTask;
-use App\Domain\Core\Model\ValueObject\TaskId;
+use App\Domain\Core\Model\Entity\Task\Task;
+use App\Domain\Core\Model\ValueObject\Task\Content;
+use App\Domain\Core\Model\ValueObject\Task\PersonInCharge;
+use App\Domain\Core\Model\ValueObject\Task\TaskId;
+use App\Domain\Core\Model\ValueObject\Task\Title;
 use Exception;
 
 /**
@@ -22,9 +25,9 @@ class TaskTransformer
     {
         return new Task(
             new TaskId($taskMapper->id),
-            $taskMapper->title,
-            $taskMapper->content,
-            $taskMapper->person_in_charge,
+            new Title($taskMapper->title),
+            new Content($taskMapper->content),
+            new PersonInCharge($taskMapper->person_in_charge),
             $taskMapper->created_at,
             $taskMapper->updated_at
         );

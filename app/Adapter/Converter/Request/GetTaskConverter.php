@@ -3,7 +3,7 @@
 namespace App\Adapter\Converter\Request;
 
 use App\Adapter\Converter\RequestConverter;
-use App\Domain\Core\Model\ValueObject\TaskId;
+use App\Domain\Core\Model\ValueObject\Task\TaskId;
 use App\Domain\Core\Service\UsecaseInput\GetTaskInput;
 
 /**
