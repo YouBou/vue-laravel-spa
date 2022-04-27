@@ -2,8 +2,8 @@
 
 namespace App\Domain\Core\Service\Factory;
 
-use App\Domain\Core\Model\Entity\Task;
-use App\Domain\Core\Model\ValueObject\TaskId;
+use App\Domain\Core\Model\Entity\Task\Task;
+use App\Domain\Core\Model\ValueObject\Task\TaskId;
 use App\Domain\Core\Service\Repository\Query\TaskQuery;
 
 /**

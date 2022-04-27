@@ -3,7 +3,7 @@
 namespace App\Adapter\Presenter\Json\Entity;
 
 use App\Adapter\Presenter\ViewModel\JsonViewModel;
-use App\Domain\Core\Model\Entity\Task;
+use App\Domain\Core\Model\Entity\Task\Task;
 
 /**
  * Class TaskViewModel
@@ -26,17 +26,17 @@ class TaskViewModel implements JsonViewModel
 
     private function getTitle(): string
     {
-        return $this->task->title;
+        return $this->task->title->value();
     }
 
     private function getContent(): string
     {
-        return $this->task->content;
+        return $this->task->content->value();
     }
 
     private function getPersonInCharge(): string
     {
-        return $this->task->personInCharge;
+        return $this->task->personInCharge->value();
     }
 
     private function getCreatedAt(): string

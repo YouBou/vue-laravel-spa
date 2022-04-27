@@ -2,7 +2,7 @@
 
 namespace App\Domain\Core\Service\UsecaseOutput\Impls;
 
-use App\Domain\Core\Model\Entity\Task;
+use App\Domain\Core\Model\Entity\Task\Task;
 use App\Domain\Core\Service\UsecaseOutput\GetTasksOutput;
 
 /**
