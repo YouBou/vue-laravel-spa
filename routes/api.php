@@ -23,3 +23,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/tasks', [TasksController::class, 'get']);         // タスク一覧取得
 Route::get('/tasks/{taskId}', [TaskController::class, 'get']); // タスク取得
 Route::post('/tasks', [TaskController::class, 'post']);        // タスク登録
+Route::put('/tasks/{taskId}', [TaskController::class, 'put']); // タスク更新
