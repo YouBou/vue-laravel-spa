@@ -10,4 +10,5 @@ use App\Domain\Core\Model\ValueObject\Base\EmptiableString;
  */
 class PersonInCharge extends EmptiableString
 {
+    protected const MAX_LENGTH = 100;
 }
