@@ -45,4 +45,23 @@ class TaskCommandGateway implements TaskCommand
         }
         return $taskId;
     }
+
+    /**
+     * @param TaskInput $input
+     * @return void
+     * @throws Throwable
+     */
+    public function update(TaskInput $input): void
+    {
+        try {
+            $this->taskDao->beginTransaction();
+            /** @var TaskId $taskId */
+            $taskId = $input->taskId;
+            $this->taskDao->update($taskId->value(), $this->taskTransformer->toRawValues($input));
+            $this->taskDao->commit();
+        } catch (Exception $e) {
+            $this->taskDao->rollBack();
+            throw $e;
+        }
+    }
 }

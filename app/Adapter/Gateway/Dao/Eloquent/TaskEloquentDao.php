@@ -53,4 +53,16 @@ class TaskEloquentDao
             ->insertGetId($values);
         return new TaskId((string) $taskId);
     }
+
+    /**
+     * @param string $taskId
+     * @param array $values
+     * @return void
+     */
+    public function update(string $taskId, array $values): void
+    {
+        Task::query()
+            ->where('id', '=', $taskId)
+            ->update($values);
+    }
 }

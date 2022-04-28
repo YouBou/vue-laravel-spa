@@ -16,4 +16,10 @@ interface TaskCommand
      * @return TaskId
      */
     public function create(TaskInput $input): TaskId;
+
+    /**
+     * @param TaskInput $input
+     * @return void
+     */
+    public function update(TaskInput $input): void;
 }

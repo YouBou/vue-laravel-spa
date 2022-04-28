@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Adapter\Converter\Request\GetTaskConverter;
 use App\Adapter\Converter\Request\PostTaskConverter;
+use App\Adapter\Converter\Request\PutTaskConverter;
 use App\Adapter\Presenter\Json\GetTaskPresenter;
 use App\Adapter\Presenter\Json\PostTaskPresenter;
 use App\Domain\Core\Service\Usecase\GetTaskUsecase;
 use App\Domain\Core\Service\Usecase\PostTaskUsecase;
+use App\Domain\Core\Service\Usecase\PutTaskUsecase;
 use App\Http\Middleware\Transaction;
 use Illuminate\Http\JsonResponse;
 use Exception;
@@ -47,5 +49,15 @@ class TaskController extends Controller
     {
         $output = $usecase->execute($input);
         return $presenter->execute($output);
+    }
+
+    /**
+     * @param PutTaskConverter $input
+     * @param PutTaskUsecase $usecase
+     * @return void
+     */
+    public function put(PutTaskConverter $input, PutTaskUsecase $usecase): void
+    {
+        $usecase->execute($input);
     }
 }
