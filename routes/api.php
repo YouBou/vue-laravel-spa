@@ -20,7 +20,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/tasks', [TasksController::class, 'get']);         // タスク一覧取得
-Route::get('/tasks/{taskId}', [TaskController::class, 'get']); // タスク取得
-Route::post('/tasks', [TaskController::class, 'post']);        // タスク登録
-Route::put('/tasks/{taskId}', [TaskController::class, 'put']); // タスク更新
+Route::get('/tasks', [TasksController::class, 'get']);               // タスク一覧取得
+Route::get('/tasks/{taskId}', [TaskController::class, 'get']);       // タスク取得
+Route::post('/tasks', [TaskController::class, 'post']);              // タスク登録
+Route::put('/tasks/{taskId}', [TaskController::class, 'put']);       // タスク更新
+Route::delete('/tasks/{taskId}', [TaskController::class, 'delete']); // タスク削除
