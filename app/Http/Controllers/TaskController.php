@@ -63,6 +63,11 @@ class TaskController extends Controller
         $usecase->execute($input);
     }
 
+    /**
+     * @param DeleteTaskConverter $input
+     * @param DeleteTaskUsecase $usecase
+     * @return void
+     */
     public function delete(DeleteTaskConverter $input, DeleteTaskUsecase $usecase): void
     {
         $usecase->execute($input);
