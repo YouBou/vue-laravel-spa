@@ -65,4 +65,15 @@ class TaskEloquentDao
             ->where('id', '=', $taskId)
             ->update($values);
     }
+
+    /**
+     * @param string $taskId
+     * @return void
+     */
+    public function delete(string $taskId): void
+    {
+        Task::query()
+            ->where('id', '=', $taskId)
+            ->delete();
+    }
 }
