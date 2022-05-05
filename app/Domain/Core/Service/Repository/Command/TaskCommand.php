@@ -22,4 +22,10 @@ interface TaskCommand
      * @return void
      */
     public function update(TaskInput $input): void;
+
+    /**
+     * @param TaskId $taskId
+     * @return void
+     */
+    public function delete(TaskId $taskId): void;
 }

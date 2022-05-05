@@ -64,4 +64,16 @@ class TaskCommandGateway implements TaskCommand
             throw $e;
         }
     }
+
+    public function delete(TaskId $taskId): void
+    {
+        try {
+            $this->taskDao->beginTransaction();
+            $this->taskDao->delete($taskId->value());
+            $this->taskDao->commit();
+        } catch (Exception $e) {
+            $this->taskDao->rollBack();
+            throw $e;
+        }
+    }
 }
