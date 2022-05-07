@@ -38,6 +38,7 @@
 </template>
 
 <script>
+// TODO composition apiについて確認
 import {defineComponent, onMounted, ref} from "vue";
 
     export default defineComponent({
