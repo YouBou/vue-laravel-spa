@@ -65,6 +65,11 @@ class TaskCommandGateway implements TaskCommand
         }
     }
 
+    /**
+     * @param TaskId $taskId
+     * @return void
+     * @throws Throwable
+     */
     public function delete(TaskId $taskId): void
     {
         try {

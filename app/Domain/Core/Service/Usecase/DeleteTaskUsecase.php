@@ -19,6 +19,10 @@ class DeleteTaskUsecase
     ) {
     }
 
+    /**
+     * @param DeleteTaskInput $input
+     * @return void
+     */
     public function execute(DeleteTaskInput $input): void
     {
         $this->taskCommand->delete($input->getTaskId());
