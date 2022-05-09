@@ -42,16 +42,22 @@
 import {defineComponent, onMounted, ref} from "vue";
 
     export default defineComponent({
-        setup() {
+        setup () {
             const tasks = ref([]);
             const getTasks = () => {
-                axios.get('/api/tasks').then((res) => {tasks.value = res.data});
+                axios.get('/api/tasks')
+                    .then((res) => {
+                        tasks.value = res.data
+                        console.log(tasks.value)
+                    })
+                    .catch(error => {
+                        console.log(error.response)
+                    })
             };
-            onMounted(() => {
-                getTasks();
-            });
-        return {
-            tasks
-        };
-    }});
+            onMounted(getTasks);
+            return {
+                tasks
+            };
+        }
+    });
 </script>
